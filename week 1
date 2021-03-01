@@ -1,0 +1,31 @@
+1.  创建一个别名 rm， 它能删除原始文件，同时在backup目录中保留副本
+    alias rm='cp $@ ~/backup && rm $@'
+  
+2. 利用tput或者stty实现对终端命令行设置
+    #!/bin/sh
+    #Filename: password.sh
+    echo -e 'Enter password:"
+    # 在读取密码前禁止回显
+    stty -echo
+    read password
+    # 重新允许回显
+    stty echo
+    echo
+    echo Password read.
+    
+3. 计时器
+    #!/bin/bash
+    echo Count:
+    tput sc # 存储光标
+    #循环40秒
+    for count in `seq 0 40`
+    do
+     tput rc # 恢复之前存储的光标位置
+     tput ed # 清楚从当前光标位置到行尾之间的所有内容
+     echo -n $count
+     sleep 1
+    done
+4. 
+5. 
+6. 
+7. 
